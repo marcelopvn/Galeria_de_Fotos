@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Fotos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Galeria de Fotos</h1>
+        </header>
+        <!-- Linha de controles: filtro à esquerda, tema à direita -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="dropdown">
+                <!-- Botão de filtro com dropdown do Bootstrap -->
+                <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" id="filtroDropdown">
+                    Filtro
+                </button>
+                <ul class="dropdown-menu">
+                    <!-- Itens de filtro, cada um com data-filter para uso no JS -->
+                    <li><a id="todos" class="dropdown-item" href="" data-filter="Todos">Todos</a></li>
+                    <li><a id="natureza" class="dropdown-item" href="" data-filter="Natureza">Natureza</a></li>
+                    <li><a id="cidades" class="dropdown-item" href="" data-filter="Cidades">Cidades</a></li>
+                    <li><a id="pessoas" class="dropdown-item" href="" data-filter="Pessoas">Pessoas</a></li>
+                </ul>
+            </div>
+            <div class="theme-toggle p-1 rounded-pill">
+                <!-- Botões para alternar entre modo claro e escuro -->
+                <button type="button" id="botao-claro" class="btn btn-light-active" data-theme="light">Claro</button>
+                <button type="button" id="botao-escuro" class="btn btn-light" data-theme="dark">Escuro</button>
+            </div>
+        </div>
+        <section class="galeria" style="position: relative;">
+            <div id="meuCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                <div class="carousel-indicators">
+                    <!-- Os indicadores serão inseridos via JS -->
+                </div>
+                <div class="carousel-inner">
+                <!-- As imagens serão inseridas aqui via JavaScript -->
+                </div>
+            </div>
+            <button class="carousel-control-prev fixo" type="button" data-bs-target="#meuCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next fixo" type="button" data-bs-target="#meuCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
+        </section>
+    </div>
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

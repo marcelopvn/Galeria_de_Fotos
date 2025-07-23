@@ -1,0 +1,143 @@
+body {
+    transition: .7s;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+.theme-toggle {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #747474;
+    box-shadow: 2px 4px 10px 2px rgba(0, 0, 0, 0.3);
+}
+
+.btn-outline-primary {
+    background-color: #747474;
+    color: #fff;
+    border: transparent;
+    box-shadow: 2px 4px 10px 2px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle .btn {
+    background-color: transparent;
+    border: transparent;
+    transition: background-color 0.7s, color 0.7s, border 0.7s, box-shadow 0.7s; /* adicionando transition para a suavizacao da troca entre os botoes para o que esta ativo  */
+    border-radius: 20px;
+    color: #fff; 
+}
+
+.theme-toggle .btn.active {
+    background-color: #0d6efd; 
+    border: 1px solid #fff;
+    color: #fff;
+    box-shadow: 0 0 12px 0 #0d6efd66;
+}
+
+body.claro {
+    background-color: #f8f9fa;
+    color: #000000;
+}
+
+body.claro .dropdown-item {
+    color: #000 !important;
+}
+
+body.escuro {
+    background-color: #242323;
+    color: #ffffff;
+    .btn-light-active {
+        color: #ffffff;
+    }
+
+    .dropdown-menu {
+    color: #000000;
+    background-color:#747474 ;
+    }
+
+    .dropdown-item:hover {
+        background-color: #9d9d9e;
+        color: #ffffff;
+    }
+}   
+
+body.escuro .dropdown-item {
+    color: #fff !important;
+}
+
+section.galeria {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.carousel-inner img {
+    width: 1100px !important;
+    height: 730px !important;
+    border-radius: 30px !important;
+    object-fit: cover !important;
+    display: block !important;
+    margin: 0 auto !important;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    border-radius: 20px;
+    top: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.claro .carousel-control-prev,
+.carousel-control-next{
+    background-color: #7c7c7c;
+}
+
+body.claro .carousel-control-next,
+.carousel-control-prev{
+    background-color: #7c7c7c;
+}
+
+.carousel-control-prev {
+    left: -60px; /* Ajuste para mais longe ou mais perto */
+}
+
+.carousel-control-next {
+    right: -60px; /* Ajuste para mais longe ou mais perto */
+}
+
+
+@media screen and (max-width: 767px) {
+
+    /* Mantendo o conteudo em bloco, para que ele nao sai da largura maxima e para tambem nao ter rolagem horizontal */
+  .container {  
+    display: block;
+    max-width: 98%;
+    overflow-x: hidden;
+  } 
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  .carousel-inner img {
+    max-width: 100%;
+    height: 700px;
+    margin-top: 40px;
+  }
+
+
+  .theme-toggle .btn {
+    display: flex;  
+  }
+}
