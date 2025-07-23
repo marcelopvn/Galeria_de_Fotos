@@ -3,6 +3,9 @@ const claro = document.getElementById("botao-claro"); // Criando a constante par
 const escuro = document.getElementById("botao-escuro"); // Criando a constante para o botão escuro
 const carouselInner = document.querySelector('.carousel-inner'); // Seleciona o container do carrossel
 const filtroDropdown = document.getElementById("filtroDropdown");
+let carouselInstance; // variável global para controlar a instância do carrossel
+
+
 
 claro.addEventListener("click", ()=> {
     body.classList.remove("escuro"); // Removendo a classe escuro do body
@@ -18,19 +21,15 @@ escuro.addEventListener("click", ()=> {
 
 function carregarImagens(imagens) {
   carouselInner.innerHTML = '';
-
-  // Seleciona o container dos indicadores
   const indicatorsContainer = document.querySelector('.carousel-indicators');
   indicatorsContainer.innerHTML = '';
 
   imagens.forEach((src, i) => {
-    // Cria o item do carrossel
     const item = document.createElement("div");
     item.className = "carousel-item" + (i === 0 ? " active" : "");
     item.innerHTML = `<img src="${src}" alt="Imagem do filtro">`;
     carouselInner.appendChild(item);
 
-    // Cria o indicador (pontinho)
     const indicator = document.createElement("button");
     indicator.type = "button";
     indicator.setAttribute("data-bs-target", "#meuCarousel");
@@ -40,14 +39,18 @@ function carregarImagens(imagens) {
     indicatorsContainer.appendChild(indicator);
   });
 
-  // Reinicializa o carrossel
-    const carousel = new bootstrap.Carousel(document.querySelector('.carousel'), {
-    interval: 5000, // tempo em milissegundos (3 segundos)
+  if (carouselInstance) {
+    carouselInstance.dispose(); // destrói a instância anterior
+  }
+
+  carouselInstance = new bootstrap.Carousel(document.querySelector('.carousel'), {
+    interval: 7000,
     ride: 'carousel',
-    touch: true,     // você pode deixar como false para testar se o problema vem do swipe
-    pause: 'hover'   // pausa o carrossel se o usuário estiver com o dedo em cima
+    touch: true,
+    pause: 'hover'
   });
-  if(carousel) carousel.to(0);
+
+  carouselInstance.to(0); // garante que comece do início
 }
 
 document.getElementById("todos").addEventListener("click", e => {
