@@ -41,8 +41,11 @@ function carregarImagens(imagens) {
   });
 
   // Reinicializa o carrossel
-  const carousel = new bootstrap.Carousel(document.querySelector('.carousel'), {
-    ride: 'carousel'
+    const carousel = new bootstrap.Carousel(document.querySelector('.carousel'), {
+    interval: 5000, // tempo em milissegundos (3 segundos)
+    ride: 'carousel',
+    touch: true,     // você pode deixar como false para testar se o problema vem do swipe
+    pause: 'hover'   // pausa o carrossel se o usuário estiver com o dedo em cima
   });
   if(carousel) carousel.to(0);
 }
