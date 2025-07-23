@@ -44,7 +44,6 @@ function carregarImagens(imagens) {
   }
 
   carouselInstance = new bootstrap.Carousel(document.querySelector('.carousel'), {
-    interval: 7000,
     ride: 'carousel',
     touch: true,
     pause: 'hover'
