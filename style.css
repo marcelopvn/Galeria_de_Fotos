@@ -76,6 +76,7 @@ section.galeria {
     display: flex;
     justify-content: center;
     margin-top: 50px;
+    position: relative;
 }
 
 .carousel-inner img {
